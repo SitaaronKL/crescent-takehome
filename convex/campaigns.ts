@@ -76,9 +76,9 @@ export const listAll = query({
 });
 
 /**
- * TRACK A — implement this.
+ * Implement this if your brief covers the campaign builder.
  *
- * Save edits from the campaign builder.
+ * Save edits from a campaign editor.
  *
  * Think about, and write your reasoning in NOTES.md:
  *   - Partial updates. Saving only the headline must not blank the description.
@@ -96,6 +96,6 @@ export const update = mutation({
     // of what we are looking at.
   },
   handler: async (_ctx, _args) => {
-    throw new Error('Not implemented — Track A');
+    throw new Error('Not implemented');
   },
 });

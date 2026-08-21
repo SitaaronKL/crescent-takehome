@@ -3,10 +3,8 @@ import { v } from 'convex/values';
 
 // The data model is GIVEN to you, deliberately.
 //
-// Both tracks read the same tables, so a shared shape is what lets two people
-// build against one backend without fighting. You may ADD tables and add
-// optional fields. Do not rename or remove what is here: the seed script and
-// the other track's code depend on it.
+// You may ADD tables and add optional fields. Do not rename or remove what is
+// here: the seed script depends on it.
 //
 // If you think something in here is modelled wrong, say so in NOTES.md. That
 // is a better signal than silently working around it.
@@ -114,8 +112,9 @@ export default defineSchema({
     .index('by_status', ['status'])
     .index('by_created', ['createdAt']),
 
-  // ── Chat (Track B only) ──────────────────────────────────────────────────
-  // Persisted agent conversations. Track A can ignore this table entirely.
+  // ── Chat ─────────────────────────────────────────────────────────────────
+  // Persisted assistant conversations. Ignore these two tables unless your
+  // brief covers an assistant.
   chatThreads: defineTable({
     title: v.string(),
     createdAt: v.number(),
@@ -130,8 +129,7 @@ export default defineSchema({
     ),
     content: v.string(),
     // When the assistant calls a tool, record WHICH tool and with what
-    // arguments. This is what makes the agent debuggable instead of magic,
-    // and it is a large part of what Track B is assessed on.
+    // arguments. This is what makes an assistant debuggable instead of magic.
     toolName: v.optional(v.string()),
     toolArgs: v.optional(v.string()),
     createdAt: v.number(),

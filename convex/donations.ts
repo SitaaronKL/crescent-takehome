@@ -71,7 +71,7 @@ export const listByCampaign = query({
 });
 
 /**
- * TRACK B — implement these.
+ * Implement these if your brief covers reporting.
  *
  * `listByCampaign` above collects every row. That is fine at 400 donations and
  * a genuine problem at 400,000: it is the shape of bug that passes review,
@@ -90,13 +90,13 @@ export const listByCampaign = query({
 export const stats = query({
   args: {},
   handler: async (_ctx) => {
-    throw new Error('Not implemented — Track B');
+    throw new Error('Not implemented');
   },
 });
 
 export const timeseries = query({
   args: {},
   handler: async (_ctx) => {
-    throw new Error('Not implemented — Track B');
+    throw new Error('Not implemented');
   },
 });
